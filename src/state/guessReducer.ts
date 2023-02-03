@@ -1,27 +1,28 @@
 import {Dispatch} from 'redux';
+import {Reducer} from '@reduxjs/toolkit';
 interface GuessState {
     currentWord: string,
     currentTries: number,
     correctGuesses: string[],
     maxTries: number,
-}
+};
 
 const initialState = {
     currentWord: '',
     currentTries: 0,
     correctGuesses:[],
     maxTries: 6
-}
+};
 
 type SetWord = {
     type: 'setWord',
     payload: string
-}
+};
 
 type Guess = {
     type: 'guess',
     payload: string
-}
+};
 
 type Action = SetWord | Guess;
 
@@ -31,7 +32,7 @@ export const setWord = (word: string) => {
             type: 'setWord',
             payload: word
         });
-    }
+    };
 };
 
 export const guess = (letter: string) => {
@@ -40,10 +41,10 @@ export const guess = (letter: string) => {
             type: 'guess',
             payload: letter
         });
-    }
+    };
 };
 
-export const guessReducer = (state: GuessState, action: Action) {
+export const guessReducer = (state: GuessState, action: Action): Reducer<GuessState, Action => {
     switch(action.type) {
         case 'setWord': return {
             currentWord: action.payload,
@@ -57,7 +58,7 @@ export const guessReducer = (state: GuessState, action: Action) {
             correctGuesses: state.correctGuesses,
             maxTries: state.maxTries
         }
-        if (state.currentWord.contains(action.payload)) {
+        if (state.currentWord.includes(action.payload)) {
             newState.correctGuesses.push(action.payload);
             return newState;
         } else {

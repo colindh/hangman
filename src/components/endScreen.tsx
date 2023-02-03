@@ -9,7 +9,7 @@ const LOSE = (<h1>Sorry, you're out of guesses</h1>);
 function EndScreen() {
   return (
     <div className="UserInput">
-        { store.currentTries < store.maxTries ? WIN : LOSE}
+        { true ? WIN : LOSE}
     </div>
   );
 }
