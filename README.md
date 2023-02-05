@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequs
+Node 18 LTS installed. Recommend installing with NVM https://github.com/nvm-sh/nvm#installing-and-updating
+
+IDE like VS Code or Atom
+
+Run `npm i` in the project to install all node dependencies
+
 ## Available Scripts
 
 In the project directory, you can run:
